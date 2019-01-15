@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/comment?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 1997
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 200MB
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp
+      suffix: .jsp
+businessImage:
+  savePath: E:/Tomcat/apache-tomcat-9.0.13/webapps/upload/business/
+  url: http://127.0.0.1:8081/upload/business/
+adImage:
+  savePath: E:/Tomcat/apache-tomcat-9.0.13/webapps/upload/ad/
+  url: http://127.0.0.1:8081/upload/ad/
+ad:
+  number: 6
+businessHome:
+  number: 5
+businessSearch:
+  number: 7
+mybatis:
+  config-location: classpath:mybatis.xml
+  type-aliases-package: com.pjb.springbootpublicremark.bean
+  mapper-locations: classpath:mapper/*.xml
+server:
+  port: 8081
