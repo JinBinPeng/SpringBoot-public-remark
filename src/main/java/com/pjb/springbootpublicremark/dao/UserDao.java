@@ -3,7 +3,9 @@ package com.pjb.springbootpublicremark.dao;
 import java.util.List;
 
 import com.pjb.springbootpublicremark.bean.User;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface UserDao {
 
     /**
@@ -15,7 +17,6 @@ public interface UserDao {
     
     /**
      * 新增
-     * @param user
      * @return 影响行数：如果用户名已存在，影响行数为0，新增成功，影响行数为1
      */
     int insert(User user);
@@ -29,7 +30,6 @@ public interface UserDao {
     
     /**
      * 修改
-     * @param user
      * @return 影响行数：如用户名将修改成与其他用户的用户名相同，影响行数为0，修改成功，影响行数为1
      */
     int update(User user);

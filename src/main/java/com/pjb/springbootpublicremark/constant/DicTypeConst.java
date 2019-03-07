@@ -4,6 +4,9 @@ package com.pjb.springbootpublicremark.constant;
  * 字典表--类型定义
  */
 public class DicTypeConst {
+    private DicTypeConst(){
+
+    }
     /**
      * 城市
      */

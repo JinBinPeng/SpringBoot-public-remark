@@ -32,7 +32,7 @@ public class MenusController {
 	/**
 	 * 新增菜单
 	 */
-	@RequestMapping(method = RequestMethod.POST)
+	@PostMapping
 	public PageCodeDto add(MenuDto menuDto) {
 		PageCodeDto result;
 		if(menuService.add(menuDto)) {
@@ -60,7 +60,7 @@ public class MenusController {
 	/**
 	 * 根据主键获取菜单dto
 	 */
-	@RequestMapping(value="/{id}",method = RequestMethod.GET)
+	@GetMapping("/{id}")
 	public MenuDto getById(@PathVariable("id") Long id) {
 		return menuService.getById(id);
 	}
@@ -82,13 +82,13 @@ public class MenusController {
 	/**
 	 * 删除菜单
 	 */
-	@RequestMapping(value="/{id}",method = RequestMethod.DELETE)
+	@DeleteMapping("/{id}")
 	public PageCodeDto remove(@PathVariable("id")Long id) {
 		PageCodeDto result;
 		MenuDto menuDto = new MenuDto();
 		menuDto.setParentId(id);
 		List<MenuDto> list = menuService.getList(menuDto);
-		if(list.size() > 0) {
+		if(!list.isEmpty()) {
 			result = new PageCodeDto(PageCodeEnum.SUB_MENU_EXISTS);
 		} else {
 			if(menuService.remove(id)) {

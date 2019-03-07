@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.pjb.springbootpublicremark.bean.Business;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface BusinessDao {
 	
 	/**
@@ -41,8 +43,6 @@ public interface BusinessDao {
     
     /**
      * 更新商户的【统计评论星星总数】、【统计评论总次数】，商户的【星级】用这两个字段数据计算得出
-     * @param map
-     * @return
      */
     int updateStar(Map<String, Date> map);
 }

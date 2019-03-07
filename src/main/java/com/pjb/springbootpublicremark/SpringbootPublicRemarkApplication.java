@@ -8,11 +8,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableTransactionManagement
 @MapperScan("com.pjb.springbootpublicremark.dao")
-public class SpringbootPublicRemarkApplication {
+public class SpringbootPublicRemarkApplication{
 
     public static void main(String[] args) {
         SpringApplication.run(SpringbootPublicRemarkApplication.class, args);
     }
-
 }
 

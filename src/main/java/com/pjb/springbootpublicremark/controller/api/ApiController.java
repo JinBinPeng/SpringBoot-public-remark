@@ -206,7 +206,6 @@ public class ApiController {
 			ordersDto.setMemberId(memberId);
 			ordersService.add(ordersDto);
 			dto = new ApiCodeDto(ApiCodeEnum.SUCCESS);
-			// 4、TODO 还有一件重要的事未做
 		} else {
 			dto = new ApiCodeDto(ApiCodeEnum.NOT_LOGGED);
 		}

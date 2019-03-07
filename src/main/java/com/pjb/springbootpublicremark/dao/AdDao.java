@@ -3,7 +3,9 @@ package com.pjb.springbootpublicremark.dao;
 import java.util.List;
 
 import com.pjb.springbootpublicremark.bean.Ad;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface AdDao {
     
     /**

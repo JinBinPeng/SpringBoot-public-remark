@@ -3,7 +3,9 @@ package com.pjb.springbootpublicremark.dao;
 import java.util.List;
 
 import com.pjb.springbootpublicremark.bean.Comment;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface CommentDao {
 	/**
      *  根据查询条件分页查询评论列表

@@ -3,12 +3,13 @@ package com.pjb.springbootpublicremark.dao;
 import java.util.List;
 
 import com.pjb.springbootpublicremark.bean.Menu;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface MenuDao {
 	
 	/**
 	 * 根据查询条件查询菜单列表（关联动作表，结果集里包含了动作列表）
-	 * @param menu
 	 * @return 菜单列表
 	 */
     List<Menu> selectWithAction(Menu menu);
@@ -22,7 +23,6 @@ public interface MenuDao {
     
     /**
      * 新增
-     * @param menu
      * @return 影响行数
      */
     int insert(Menu menu);
@@ -36,7 +36,6 @@ public interface MenuDao {
     
     /**
      * 修改
-     * @param menu
      * @return 影响行数
      */
     int update(Menu menu);
@@ -57,7 +56,6 @@ public interface MenuDao {
     
     /**
      * 修改排序在指定菜单后面的兄弟节点(包括指定菜单本身)的排序数字，修改为原排序数字+1
-     * @param id
      * @return 影响行数
      */
     int updateOrderNumByIdInclude(Long id);

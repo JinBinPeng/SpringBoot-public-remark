@@ -6,7 +6,7 @@
 
 <mapper namespace="com.pjb.springbootpublicremark.dao.MenuDao">
 	
-	<resultMap type="Menu" id="MenuResultMap">
+	<resultMap type="com.pjb.springbootpublicremark.bean.Menu" id="MenuResultMap">
 		<id column="id" property="id" />
 		<id column="name" property="name" />
 		<id column="url" property="url" />
@@ -27,7 +27,7 @@
 		order by m.order_num,convert(a.name using gbk) collate gbk_chinese_ci
 	</select>
 	
-	<select id="select" resultType="Menu">
+	<select id="select" resultType="com.pjb.springbootpublicremark.bean.Menu">
 		select t.id,t.name,t.url,t.parent_id from sys_menu t
 		<where>
 			<if test="parentId != null">
@@ -43,7 +43,7 @@
 		,ifnull((select max(order_num)+1 from sys_menu where parent_id=#{parentId}),1)
 	</insert>
 	
-	<select id="selectById" resultType="Menu">
+	<select id="selectById" resultType="com.pjb.springbootpublicremark.bean.Menu">
 		select id,name,url,parent_id,order_num from sys_menu t where t.id = #{_parameter}
 	</select>
 	

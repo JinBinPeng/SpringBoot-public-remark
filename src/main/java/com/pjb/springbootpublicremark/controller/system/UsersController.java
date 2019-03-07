@@ -30,7 +30,7 @@ public class UsersController {
 	/**
 	 * 新增用户
 	 */
-	@RequestMapping(method = RequestMethod.POST)
+	@PostMapping
 	public PageCodeDto add(UserDto userDto) {
 		PageCodeDto result;
 		if(userService.add(userDto)) {
@@ -44,7 +44,7 @@ public class UsersController {
 	/**
 	 * 根据主键获取用户dto
 	 */
-	@RequestMapping(value="/{id}",method = RequestMethod.GET)
+	@GetMapping("/{id}")
 	public UserDto getById(@PathVariable("id") Long id) {
 		return userService.getById(id);
 	}
@@ -52,7 +52,7 @@ public class UsersController {
 	/**
 	 * 修改用户
 	 */
-	@RequestMapping(value="/{id}",method = RequestMethod.PUT)
+	@PutMapping("/{id}")
 	public PageCodeDto modify(UserDto userDto) {
 		PageCodeDto result;
 		if(userService.modify(userDto)) {
@@ -66,7 +66,7 @@ public class UsersController {
 	/**
 	 * 删除用户
 	 */
-	@RequestMapping(value="/{id}",method = RequestMethod.DELETE)
+	@DeleteMapping("/{id}")
 	public PageCodeDto remove(@PathVariable("id")Long id) {
 		PageCodeDto result;
 		if(userService.remove(id)) {

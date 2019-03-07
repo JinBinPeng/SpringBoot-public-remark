@@ -44,7 +44,7 @@ public class GroupsController {
 	/**
 	 * 根据主键获取用户组dto
 	 */
-	@RequestMapping(value="/{id}",method = RequestMethod.GET)
+	@GetMapping("/{id}")
 	public GroupDto getGroupById(@PathVariable("id") Long id) {
 		return groupService.getById(id);
 	}
@@ -52,7 +52,7 @@ public class GroupsController {
 	/**
 	 * 修改用户组
 	 */
-	@RequestMapping(value="/{id}",method = RequestMethod.PUT)
+	@PutMapping("/{id}")
 	public PageCodeDto modify(GroupDto groupDto) {
 		PageCodeDto result;
 		if(groupService.modify(groupDto)) {
@@ -66,7 +66,7 @@ public class GroupsController {
 	/**
 	 * 删除用户组
 	 */
-	@RequestMapping(value="/{id}",method = RequestMethod.DELETE)
+	@DeleteMapping("/{id}")
 	public PageCodeDto modify(@PathVariable("id")Long id) {
 		PageCodeDto result;
 		if(groupService.remove(id)) {

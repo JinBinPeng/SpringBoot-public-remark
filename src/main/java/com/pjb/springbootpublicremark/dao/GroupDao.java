@@ -3,7 +3,9 @@ package com.pjb.springbootpublicremark.dao;
 import java.util.List;
 
 import com.pjb.springbootpublicremark.bean.Group;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface GroupDao {
 
 	/**
@@ -15,7 +17,6 @@ public interface GroupDao {
     
     /**
      * 新增
-     * @param group
      * @return 影响行数：如果用户组名已存在，影响行数为0，新增成功，影响行数为1
      */
     int insert(Group group);
@@ -29,7 +30,6 @@ public interface GroupDao {
     
     /**
      * 修改
-     * @param group
      * @return 影响行数：如用户组名将修改成与其他用户组的名称相同，影响行数为0；如果修改成功，影响行数为1
      */
     int update(Group group);

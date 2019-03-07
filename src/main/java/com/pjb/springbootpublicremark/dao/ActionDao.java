@@ -1,7 +1,9 @@
 package com.pjb.springbootpublicremark.dao;
 
 import com.pjb.springbootpublicremark.bean.Action;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface ActionDao {
 	
 	/**

@@ -1,18 +1,20 @@
 package com.pjb.springbootpublicremark.controller.report;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
 import com.pjb.springbootpublicremark.dto.echarts.Option;
 import com.pjb.springbootpublicremark.dto.echarts.Serie;
 import com.pjb.springbootpublicremark.service.OrderReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 @Controller
 @RequestMapping("/orderReport")
@@ -25,16 +27,14 @@ public class OrderReportController {
 	public String index() {
 		return "/report/orderCount";
 	}
-	
+
+	@GetMapping("/count")
 	@ResponseBody
-	@RequestMapping(value="/count" , method = RequestMethod.GET)
-	public Option count() {
+	public Option count() throws NoSuchAlgorithmException {
 		Option option = orderReportService.count();
-		
-		// TODO 演示用数据 -- start
 		String[] names = new String[]{"电影","结婚","美食"};
 		option.getLegend().setData(Arrays.asList(names));
-		Random rand = new Random();
+		Random rand = SecureRandom.getInstanceStrong();
 		List<Serie> series = new ArrayList<>();
 		for(String name : names) {
 			Serie serie = new Serie();
@@ -42,12 +42,10 @@ public class OrderReportController {
 			serie.setName(name);
 			serie.setType("line");
 			for(int i = 0; i < 24; i++) {
-				serie.getData().add(Long.valueOf(rand.nextInt(1000)));
+				serie.getData().add((long) rand.nextInt(1000));
 			}
 		}
 		option.setSeries(series);
-		// TODO 演示用数据 -- end
-		
 		return option;
 	}
 }

@@ -4,6 +4,9 @@ package com.pjb.springbootpublicremark.constant;
  * 评论状态常量
  */
 public class CommentStateConst {
+    private CommentStateConst(){
+
+    }
     /**
      * 未评论
      */

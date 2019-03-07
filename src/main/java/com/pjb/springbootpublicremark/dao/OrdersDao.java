@@ -1,10 +1,11 @@
 package com.pjb.springbootpublicremark.dao;
 
+import com.pjb.springbootpublicremark.bean.Orders;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
-import com.pjb.springbootpublicremark.bean.Ad;
-import com.pjb.springbootpublicremark.bean.Orders;
-
+@Component
 public interface OrdersDao {
 	
 	/**

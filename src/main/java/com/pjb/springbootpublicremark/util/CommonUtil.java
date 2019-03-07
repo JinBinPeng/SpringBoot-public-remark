@@ -45,8 +45,6 @@ public class CommonUtil {
 	
 	/**
 	 * 判断session中存放的动作dto列表中是否包含指定的url
-	 * @param session
-	 * @param url 
 	 * @param method http动作
 	 * @return true:包含，false：不包含
 	 */

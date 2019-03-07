@@ -8,7 +8,6 @@ import javax.annotation.Resource;
 
 import com.pjb.springbootpublicremark.bean.Business;
 import com.pjb.springbootpublicremark.bean.Page;
-import com.pjb.springbootpublicremark.constant.CategoryConst;
 import com.pjb.springbootpublicremark.dao.BusinessDao;
 import com.pjb.springbootpublicremark.dto.BusinessDto;
 import com.pjb.springbootpublicremark.dto.BusinessListDto;
@@ -69,14 +68,13 @@ public class BusinessServiceImpl implements BusinessService {
 		Business businessForSelect = new Business();
 		BeanUtils.copyProperties(businessDto, businessForSelect);
 		// 当关键字不为空时，把关键字的值分别设置到标题、副标题、描述中
-		// TODO 改进做法：全文检索
 		if (!CommonUtil.isEmpty(businessDto.getKeyword())) {
 			businessForSelect.setTitle(businessDto.getKeyword());
 			businessForSelect.setSubtitle(businessDto.getKeyword());
 			businessForSelect.setDesc(businessDto.getKeyword());
 		}
 		// 当类别为全部(all)时，需要将类别清空，不作为过滤条件
-		if (businessDto.getCategory() != null && CategoryConst.ALL.equals(businessDto.getCategory())) {
+		if (businessDto.getCategory() != null && businessDto.getCategory().equals("all")) {
 			businessForSelect.setCategory(null);
 		}
 		// 前端app页码从0开始计算，这里需要+1
@@ -121,7 +119,6 @@ public class BusinessServiceImpl implements BusinessService {
 				businessDao.insert(business);
 				return true;
 			} catch (IllegalStateException | IOException e) {
-				// TODO 需要添加日志
 				return false;
 			}
 		} else {

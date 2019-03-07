@@ -4,6 +4,9 @@ package com.pjb.springbootpublicremark.constant;
  * 存放在Session中各种信息的Key值定义
  */
 public class SessionKeyConst {
+	private SessionKeyConst(){
+
+	}
 	/**
 	 * 用户信息的Key值
 	 */

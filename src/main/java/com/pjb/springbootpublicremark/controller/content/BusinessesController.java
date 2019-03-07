@@ -1,19 +1,16 @@
 package com.pjb.springbootpublicremark.controller.content;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import com.alibaba.fastjson.JSONObject;
 import com.pjb.springbootpublicremark.constant.DicTypeConst;
 import com.pjb.springbootpublicremark.constant.PageCodeEnum;
 import com.pjb.springbootpublicremark.dto.BusinessDto;
-import com.pjb.springbootpublicremark.dto.CommentDto;
 import com.pjb.springbootpublicremark.service.BusinessService;
 import com.pjb.springbootpublicremark.service.DicService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.annotation.Resource;
 
 @Controller
 @RequestMapping("/businesses")
@@ -69,7 +66,7 @@ public class BusinessesController {
 	/**
 	 * 商户修改页初始化
 	 */
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@GetMapping("/{id}")
 	public String modifyInit(Model model, @PathVariable("id") Long id) {
 		model.addAttribute("cityList", dicService.getListByType(DicTypeConst.CITY));
 		model.addAttribute("categoryList", dicService.getListByType(DicTypeConst.CATEGORY));
@@ -80,9 +77,8 @@ public class BusinessesController {
 	/**
 	 * 商户修改
 	 */
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public String modify(@PathVariable("id") Long id, BusinessDto dto) {
-		System.out.println(id);
+	@PutMapping("/{id}")
+	public String modify(@PathVariable("id") Long id) {
 		return "/content/businessModify";
 	}
 }

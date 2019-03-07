@@ -1,7 +1,5 @@
 package com.pjb.springbootpublicremark.controller.content;
 
-import javax.servlet.http.HttpServletRequest;
-
 import com.pjb.springbootpublicremark.constant.PageCodeEnum;
 import com.pjb.springbootpublicremark.dto.AdDto;
 import com.pjb.springbootpublicremark.service.AdService;
@@ -20,20 +18,9 @@ public class AdController {
 	private AdService adService;
 
 	/**
-	 * 广告管理页初始化(点广告管理菜单进入的第一个页面)
-	 */
-	/*@RequestMapping
-	public String init(Model model, HttpServletRequest request) {
-		AdDto adDto = new AdDto();
-		model.addAttribute("list", adService.searchByPage(adDto));
-		model.addAttribute("searchParam", adDto);
-		return "/content/adList";
-	}*/
-
-	/**
 	 * 查询
 	 */
-	@GetMapping/*("/search")*/
+	@GetMapping
 	public String search(Model model) {
 		AdDto adDto =new AdDto();
 		model.addAttribute("list", adService.searchByPage(adDto));

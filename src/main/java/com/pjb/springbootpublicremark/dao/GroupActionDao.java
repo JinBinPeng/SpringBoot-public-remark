@@ -3,7 +3,9 @@ package com.pjb.springbootpublicremark.dao;
 import java.util.List;
 
 import com.pjb.springbootpublicremark.bean.GroupAction;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface GroupActionDao {
 	/**
 	 * 根据用户组主键，删除用户组与动作之间的关联关系

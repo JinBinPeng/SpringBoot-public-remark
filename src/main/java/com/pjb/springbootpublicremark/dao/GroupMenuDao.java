@@ -3,7 +3,9 @@ package com.pjb.springbootpublicremark.dao;
 import java.util.List;
 
 import com.pjb.springbootpublicremark.bean.GroupMenu;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface GroupMenuDao {
 	
 	/**
@@ -15,7 +17,6 @@ public interface GroupMenuDao {
 	
 	/**
 	 * 批量新增
-	 * @param list
 	 * @return 影响行数
 	 */
 	int insertBatch(List<GroupMenu> list);

@@ -6,7 +6,7 @@
 
 <mapper namespace="com.pjb.springbootpublicremark.dao.SysParamDao">
 
-	<select id="selectByKey" resultType="SysParam">
+	<select id="selectByKey" resultType="com.pjb.springbootpublicremark.bean.SysParam">
 		select param_key,param_value,param_desc from sys_param where param_key = #{_parameter}
 	</select>
 	
